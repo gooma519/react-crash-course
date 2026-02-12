@@ -1,8 +1,10 @@
 import classes from './NewPost.module.css';
+import {useState} from "react";
 
 function NewPost() {
+    const [enteredBody, setEnteredBody] = useState('')
     const changeBodyHandler = (e) => {
-        console.log(e.target.value)
+        setEnteredBody(e.target.value)
     }
   return (
     <form className={classes.form}>
@@ -10,6 +12,7 @@ function NewPost() {
         <label htmlFor="body">Text</label>
         <textarea id="body" required rows={3} onChange={changeBodyHandler}/>
       </p>
+        <p>{enteredBody}</p>
       <p>
         <label htmlFor="name">Your name</label>
         <input type="text" id="name" required />
